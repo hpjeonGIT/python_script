@@ -12,7 +12,9 @@ class AppWin(tk.Frame):
         self.master.title('Sample GUI')
         self.master.geometry("500x500")
         self.init_window()
+        self.master.protocol("WM_DELETE_WINDOW", self.quit) # this kills app when x in the window clicked
 
+        
     def init_window(self):
         self.master.title("GUI")
         self.pack()

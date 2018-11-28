@@ -34,3 +34,25 @@ plt.hist(ff.result)
 plt.show()
 
 ####### Augment non-uniform time grid data into every second table - ENDS #############
+
+### Resampling over 1 minute as aggregation - BEGINS ####
+ff = ff.set_index(pd.DatetimeIndex(ff['timestamp'])
+ff = ff.drop('timestamp'], axis=1)
+af = ff.data1.resample('1T').sum()
+fig = plt.gcf()
+fig.set_size_inches(30,10)
+plt.plot(af)
+plt.show()
+### Resampling over 1 minute as aggregation - ENDS ####
+
+### phase vs mag in FFT - BEGINS ####
+y = preprocessing.scale(af)
+yf = np.fft.fft(y)
+angle = np.angle(yf)*180/np.pi
+mag = np.abs(yf)
+plt.plot(angle, mag, 'o')
+plt.yscale('log')
+plt.ylim([1,100000])
+plt.title('title')
+plt.show()
+### phase vs mag in FFT - ENDS ####

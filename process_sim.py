@@ -13,7 +13,7 @@ def gaussian(sigma):
         v1 = 2.*x - 1.
         v2 = 2.*y - 1.
         r = v1*v1 +v2*v2
-    return v1*np.sqrt(-2.*np.log(r)/r)*sigma*0.1
+    return v1*np.sqrt(-2.*np.log(r)/r)*sigma
 
 #
 MYPITAG      = "SINUSOID"

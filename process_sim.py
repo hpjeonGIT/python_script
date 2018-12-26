@@ -5,7 +5,7 @@ import scipy
 from datetime import datetime,timedelta
 import random
 
-def gaussian():
+def gaussian(sigma):
     r=1.0
     while r>= 1.0:
         x = random.random()
@@ -13,7 +13,7 @@ def gaussian():
         v1 = 2.*x - 1.
         v2 = 2.*y - 1.
         r = v1*v1 +v2*v2
-    return v1*np.sqrt(-2.*np.log(r)/r)*x*0.1
+    return v1*np.sqrt(-2.*np.log(r)/r)*sigma*0.1
 
 #
 MYPITAG      = "SINUSOID"
@@ -30,7 +30,7 @@ while (tnow < end):
         signal = 10.0
     else:
         signal = 0.0
-    a_list.append((tnow,gaussian()+signal))
+    a_list.append((tnow,gaussian(1.0)+signal))
     tnow += dt
 
 df = pd.DataFrame(a_list)    

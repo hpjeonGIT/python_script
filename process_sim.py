@@ -46,6 +46,13 @@ print(dir(tnow),tnow.hour, tnow.minute, tnow.second)
 
 # Find periodicity
 fft = np.fft.fft(df[1])
+'''
+# when signal is not strong, exaggeration may be done
+xf = df[1].copy()
+xf = np.exp(xf-xf.max())
+plt.plot(xf)
+fft = np.fft.fft(xf)
+'''
 plt.plot(np.abs(fft))
 plt.grid()
 plt.show()

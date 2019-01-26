@@ -6,7 +6,7 @@ if len(sys.argv) < 2:
 
 infile = sys.argv[1]
 outfile = infile + '.vtk'
-result = pyansys.ResultReader('file.rst')
+result = pyansys.ResultReader(infile)
 grid = result.grid.copy()
 # check binary_reader.py at source code of pyansys
 for i in range(result.nsets):

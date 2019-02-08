@@ -97,4 +97,5 @@ if (Download_Interpolated_Data):
         df.to_csv('PI_TAG_data_interpol.csv')
         
 print("Elapsed time = %.2f sec"%(time.time()-t1))
-
+# Time stamp will have the class of System.TimeDate, which is a class of .NET. 
+# Store as string first and then pd.to_timedate() to convert to pandas timedate
